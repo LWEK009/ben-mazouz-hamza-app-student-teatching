@@ -62,7 +62,7 @@ class FaslDetailScreen extends StatelessWidget {
                   child: ListView.builder(
                     physics: const BouncingScrollPhysics(),
                     padding: const EdgeInsets.symmetric(horizontal: 20),
-                    itemCount: 3,
+                    itemCount: AppData.lessonTopics[yearIndex]?[faslIndex]?.length ?? 0,
                     itemBuilder: (context, index) {
                       final topic = AppData.lessonTopics[yearIndex]?[faslIndex]?[index] ?? 'المقطع ${index + 1}';
                       final List<Color> sectionColors = [

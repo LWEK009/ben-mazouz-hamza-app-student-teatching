@@ -123,7 +123,7 @@ class YearDetailScreen extends StatelessWidget {
                                         children: [
                                           Text(AppData.fusulNames[index],
                                             style: GoogleFonts.cairo(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
-                                          Text('3 حصص دراسية',
+                                          Text('${AppData.lessonTopics[yearIndex]?[index]?.length ?? 0} مقاطع',
                                             style: GoogleFonts.cairo(fontSize: 13, color: Colors.white.withValues(alpha: 0.7))),
                                         ],
                                       ),

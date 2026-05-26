@@ -14,6 +14,8 @@ class TeacherWorkScreen extends StatelessWidget {
       [const Color(0xFF0D47A1), const Color(0xFF1976D2)],
       [const Color(0xFFE65100), const Color(0xFFEF6C00)],
       [const Color(0xFFB71C1C), const Color(0xFFD32F2F)],
+      [const Color(0xFF4A148C), const Color(0xFF7B1FA2)],
+      [const Color(0xFF006064), const Color(0xFF0097A6)],
     ];
 
     return Directionality(
@@ -103,7 +105,7 @@ class TeacherWorkScreen extends StatelessWidget {
                       mainAxisSpacing: 14,
                       childAspectRatio: 0.9,
                     ),
-                    itemCount: 4,
+                    itemCount: AppData.teacherWorkCategories.length,
                     itemBuilder: (context, index) {
                       return FadeInUp(
                         delay: Duration(milliseconds: 300 + (index * 150)),
