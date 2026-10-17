@@ -7,6 +7,14 @@ class AppData {
   // WhatsApp contact number
   static const String whatsappNumber = '213659300250'; // Algeria +213
 
+  // Used to generate a unique unlock code for each phone (no database).
+  // Change this if you ever need to invalidate all old codes.
+  static const String unlockSecret = 'manaret-al-lougha-unlock-v1-hamza-2026';
+
+  // PIN to open the teacher screen that creates unlock codes.
+  // Long-press the home logo, then enter this PIN.
+  static const String teacherPin = '7391';
+
   // Google Drive folder links for each year, term, and section/makta3
   static const Map<int, Map<int, Map<int, String>>> driveLinks = {
     0: { // السنة الأولى متوسط

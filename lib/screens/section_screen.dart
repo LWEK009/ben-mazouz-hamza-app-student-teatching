@@ -4,6 +4,8 @@ import 'package:animate_do/animate_do.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../constants/app_theme.dart';
 import '../constants/app_data.dart';
+import '../services/access_service.dart';
+import 'unlock_screen.dart';
 
 class SectionScreen extends StatelessWidget {
   final int yearIndex;
@@ -18,6 +20,18 @@ class SectionScreen extends StatelessWidget {
     required this.sectionIndex,
     required this.topicTitle,
   });
+
+  Future<void> _onDriveTap(BuildContext context) async {
+    final unlocked = await AccessService.instance.isUnlocked();
+    if (!context.mounted) return;
+    if (!unlocked) {
+      final ok = await Navigator.of(context).push<bool>(
+        MaterialPageRoute(builder: (_) => const UnlockScreen()),
+      );
+      if (ok != true || !context.mounted) return;
+    }
+    await _openDriveLink(context);
+  }
 
   Future<void> _openDriveLink(BuildContext context) async {
     final urlString = AppData.driveLinks[yearIndex]?[faslIndex]?[sectionIndex] ?? 'https://drive.google.com';
@@ -173,7 +187,7 @@ class SectionScreen extends StatelessWidget {
                           child: Material(
                             color: Colors.transparent,
                             child: InkWell(
-                              onTap: () => _openDriveLink(context),
+                              onTap: () => _onDriveTap(context),
                               borderRadius: BorderRadius.circular(20),
                               child: Container(
                                 width: double.infinity,

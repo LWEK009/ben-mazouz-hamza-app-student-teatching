@@ -4,6 +4,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../constants/app_theme.dart';
 import '../constants/app_data.dart';
+import 'unlock_screen.dart';
 
 class SubscriptionScreen extends StatelessWidget {
   const SubscriptionScreen({super.key});
@@ -161,6 +162,42 @@ class SubscriptionScreen extends StatelessWidget {
                         ),
 
                         const SizedBox(height: 20),
+
+                        FadeInUp(
+                          delay: const Duration(milliseconds: 400),
+                          child: Material(
+                            color: Colors.transparent,
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(builder: (_) => const UnlockScreen()),
+                                );
+                              },
+                              borderRadius: BorderRadius.circular(20),
+                              child: Container(
+                                width: double.infinity,
+                                padding: const EdgeInsets.symmetric(vertical: 18),
+                                decoration: BoxDecoration(
+                                  gradient: const LinearGradient(
+                                    colors: [Color(0xFFD4A853), Color(0xFFB8860B)],
+                                  ),
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    const Icon(Icons.vpn_key_rounded, color: Colors.white, size: 26),
+                                    const SizedBox(width: 12),
+                                    Text('الدفع وإدخال رمز التفعيل',
+                                      style: GoogleFonts.cairo(fontSize: 17, fontWeight: FontWeight.bold, color: Colors.white)),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+
+                        const SizedBox(height: 16),
 
                         // WhatsApp Contact Button
                         FadeInUp(

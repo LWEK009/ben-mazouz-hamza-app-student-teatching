@@ -6,6 +6,7 @@ import '../constants/app_data.dart';
 import 'lessons_screen.dart';
 import 'teacher_work_screen.dart';
 import 'subscription_screen.dart';
+import 'teacher_code_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -90,26 +91,29 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                           child: child,
                         );
                       },
-                      child: Container(
-                        width: 120,
-                        height: 120,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                              color: AppColors.gold.withValues(alpha: 0.5),
-                              width: 3),
-                          boxShadow: [
-                            BoxShadow(
-                              color: AppColors.gold.withValues(alpha: 0.2),
-                              blurRadius: 20,
-                              spreadRadius: 5,
+                      child: GestureDetector(
+                        onLongPress: () => _navigateTo(const TeacherCodeScreen()),
+                        child: Container(
+                          width: 120,
+                          height: 120,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                                color: AppColors.gold.withValues(alpha: 0.5),
+                                width: 3),
+                            boxShadow: [
+                              BoxShadow(
+                                color: AppColors.gold.withValues(alpha: 0.2),
+                                blurRadius: 20,
+                                spreadRadius: 5,
+                              ),
+                            ],
+                          ),
+                          child: ClipOval(
+                            child: Image.asset(
+                              'assets/images/logo.jpeg',
+                              fit: BoxFit.cover,
                             ),
-                          ],
-                        ),
-                        child: ClipOval(
-                          child: Image.asset(
-                            'assets/images/logo.jpeg',
-                            fit: BoxFit.cover,
                           ),
                         ),
                       ),
